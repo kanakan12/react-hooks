@@ -1,11 +1,11 @@
-import { useTitle } from "./useTitle";
+import { useClick } from "./useClick";
 
 function App() {
-    const titleUpdater = useTitle("Loading...");
-    setTimeout(() => titleUpdater("Home"), 5000);
+    const onClick = () => console.log("test");
+    const title = useClick(onClick);
     return (
         <>
-            <div>Hi</div>
+            <h1 ref={title}>Test</h1>
         </>
     );
 }
