@@ -1,12 +1,11 @@
-import { useConfirm } from "./useConfirm";
+import { useBeforeLeave } from "./useBeforeLeave";
 
 function App() {
-    const del = () => console.log("Del");
-    const abort = () => console.log("Aborted");
-    const confirmDel = useConfirm("test", del, abort);
+    const test = () => console.log("plz don`t leave");
+    useBeforeLeave(test);
     return (
         <>
-        <button onClick={confirmDel}>Del</button>
+        <h1>Test</h1>
         </>
     );
 }
