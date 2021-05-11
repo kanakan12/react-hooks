@@ -1,13 +1,29 @@
 import React from "react";
-import { useInput } from "./useInput";
+import { useTabs } from "./useTabs";
+
+const content = [
+    {
+        tab:"Section 1",
+        content: "content 1"
+    },
+    {
+        tab:"Section 2",
+        content: "content 2"
+    }
+]
 
 function App() {
-    const maxLen = value => value.length < 10;
-    const name = useInput("I`m ", maxLen);
+    const {item, changeitem} = useTabs(0, content);
     return (
         <>
-            <h1>hello</h1>
-            <input placeholder="Name" {...name}/>
+            {content.map(
+                (section, index) => 
+                <button 
+                    onClick={() => changeitem(index)}
+                    key={index}
+                >{section.tab}</button>
+            )}
+            <div>{item.content}</div>
         </>
     )
 }
