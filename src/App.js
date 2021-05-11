@@ -1,11 +1,10 @@
-import { useBeforeLeave } from "./useBeforeLeave";
+import {useFadeIn} from "./useFadeIn";
 
 function App() {
-    const test = () => console.log("plz don`t leave");
-    useBeforeLeave(test);
+    const el = useFadeIn(3, 2);
     return (
         <>
-        <h1>Test</h1>
+            <h1 {...el}>Test</h1>
         </>
     );
 }
