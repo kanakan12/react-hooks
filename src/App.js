@@ -1,10 +1,13 @@
-import {useFadeIn} from "./useFadeIn";
+import {useNetwork} from "./useNetwork";
 
 function App() {
-    const el = useFadeIn(3, 2);
+    const handleNetworkChange = online => {
+        console.log(online ? "Online" : "Offline");
+    }
+    const onLine = useNetwork(handleNetworkChange);
     return (
         <>
-            <h1 {...el}>Test</h1>
+            <h1>{onLine ? "Online" : "Offline"}</h1>
         </>
     );
 }
