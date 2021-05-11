@@ -1,11 +1,12 @@
-import { useClick } from "./useClick";
+import { useConfirm } from "./useConfirm";
 
 function App() {
-    const onClick = () => console.log("test");
-    const title = useClick(onClick);
+    const del = () => console.log("Del");
+    const abort = () => console.log("Aborted");
+    const confirmDel = useConfirm("test", del, abort);
     return (
         <>
-            <h1 ref={title}>Test</h1>
+        <button onClick={confirmDel}>Del</button>
         </>
     );
 }
