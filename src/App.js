@@ -1,15 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
+import { useInput } from "./useInput";
 
 function App() {
-    const [item, setItme] = useState(0);
-    const incrementItem = () => setItme(item + 1);
-    const decrementItem = () => setItme(item - 1);
+    const maxLen = value => value.length < 10;
+    const name = useInput("I`m ", maxLen);
     return (
-        <div>
-            <h1>{item}</h1>
-            <button onClick={incrementItem}>Inc</button>
-            <button onClick={decrementItem}>Dec</button>
-        </div>
+        <>
+            <h1>hello</h1>
+            <input placeholder="Name" {...name}/>
+        </>
     )
 }
 
